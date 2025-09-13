@@ -2,15 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap');
 
 :root {
-    --primary-color: #2c3e50; /* سرمه‌ای تیره */
-    --secondary-color: #ecf0f1; /* خاکستری روشن */
-    --accent-color: #f1c40f; /* طلایی روشن */
-    --dark-accent-color: #c0a060; /* طلایی تیره‌تر لوکس */
-    --text-color: #34495e; /* خاکستری تیره مایل به آبی */
-    --light-text-color: #ecf0f1;
-    --card-bg: #ffffff;
-    --shadow-color: rgba(0, 0, 0, 0.15);
-    --border-radius: 8px;
+    /* Marlboro Inspired Palette */
+    --primary-color: #2A2A2A; /* مشکی ذغالی/قهوه‌ای تیره - پس‌زمینه اصلی */
+    --secondary-bg: #F5F5DC; /* بژ روشن/کرم - پس‌زمینه کارت‌ها و روشن */
+    --accent-red: #CC0000;   /* قرمز Marlboro - برای برجسته‌سازی */
+    --accent-gold: #DAA520;  /* طلایی عمیق/برنجی - برای جزئیات لوکس */
+    --text-color: #333333;   /* خاکستری تیره مایل به قهوه‌ای - متن اصلی */
+    --light-text-color: #F5F5DC; /* بژ روشن - متن روی پس‌زمینه تیره */
+    --shadow-color: rgba(0, 0, 0, 0.25); /* سایه کمی تیره‌تر */
+    --border-radius: 6px; /* کمی گردتر */
 }
 
 * {
@@ -23,7 +23,7 @@ body {
     font-family: 'Vazirmatn', sans-serif;
     line-height: 1.7;
     color: var(--text-color);
-    background-color: var(--secondary-color);
+    background-color: var(--secondary-bg); /* پس‌زمینه کلی بژ روشن */
     direction: rtl;
     text-align: right;
     min-height: 100vh;
@@ -34,14 +34,14 @@ body {
 .header {
     background-color: var(--primary-color);
     position: relative;
-    padding-bottom: 2rem; /* فضا برای محتوای هدر */
+    padding-bottom: 2rem;
 }
 
 /* Carousel Styles */
 .carousel-container {
     position: relative;
     width: 100%;
-    max-height: 400px; /* حداکثر ارتفاع برای اسلایدر در دسکتاپ */
+    max-height: 400px;
     overflow: hidden;
 }
 
@@ -50,15 +50,15 @@ body {
     width: 100%;
     height: 100%;
     -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
+    -webkit-animation-duration: 0.8s; /* انیمیشن نرم‌تر */
     animation-name: fade;
-    animation-duration: 1.5s;
+    animation-duration: 0.8s; /* انیمیشن نرم‌تر */
 }
 
 .carousel-slide img {
     width: 100%;
-    height: 400px; /* ارتفاع در دسکتاپ */
-    object-fit: cover; /* پر کردن کادر با حفظ نسبت ابعاد */
+    height: 400px;
+    object-fit: cover;
     display: block;
 }
 
@@ -70,13 +70,13 @@ body {
     width: auto;
     padding: 16px;
     margin-top: -22px;
-    color: white;
+    color: var(--light-text-color); /* رنگ دکمه‌ها */
     font-weight: bold;
     font-size: 20px;
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(42, 42, 42, 0.6); /* مشکی ذغالی نیمه شفاف */
     z-index: 10;
 }
 
@@ -89,11 +89,11 @@ body {
 .prev {
     right: auto;
     left: 0;
-    border-radius: 0 3px 3px 0; /* اصلاح برای دکمه قبلی */
+    border-radius: 0 3px 3px 0;
 }
 
 .prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(204, 0, 0, 0.8); /* قرمز Marlboro در هاور */
 }
 
 /* Fade animation */
@@ -112,15 +112,24 @@ body {
     bottom: 0;
     width: 100%;
     text-align: center;
-    padding: 1rem 1rem 1.5rem 1rem; /* پدینگ برای فیلترها */
-    background: linear-gradient(to top, rgba(44, 62, 80, 0.9) 0%, rgba(44, 62, 80, 0.7) 70%, rgba(44, 62, 80, 0) 100%);
+    padding: 1rem 1rem 1.5rem 1rem;
+    /* گرادیانت با الهام از مارلبرو */
+    background: linear-gradient(to top, rgba(42, 42, 42, 0.9) 0%, rgba(42, 42, 42, 0.7) 70%, rgba(42, 42, 42, 0) 100%);
     color: var(--light-text-color);
+}
+
+.logo-placeholder { /* اگر بخواهید لوگو اضافه کنید */
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
 }
 
 .header-title {
     margin: 0;
     font-size: 2.8rem;
-    color: var(--accent-color);
+    color: var(--accent-gold); /* عنوان با رنگ طلایی */
     text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
     letter-spacing: 1px;
 }
@@ -135,38 +144,38 @@ body {
 .search-and-filter-bar {
     display: flex;
     justify-content: center;
-    gap: 1rem; /* کاهش فاصله بین جستجو و فیلتر */
+    gap: 1rem;
     margin-top: 1.5rem;
     width: 90%;
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
-    flex-wrap: nowrap; /* از شکستن به سطر جدید جلوگیری شود در دسکتاپ */
+    flex-wrap: nowrap;
 }
 
 .search-box, .brand-filter {
     flex: 1;
-    min-width: 0; /* اجازه کوچک شدن بیشتر */
+    min-width: 0;
     position: relative;
 }
 
 .search-box input {
     width: 100%;
     padding: 0.8rem 3rem 0.8rem 1rem;
-    border: 1px solid var(--accent-color);
+    border: 1px solid var(--accent-gold); /* بوردر طلایی */
     border-radius: var(--border-radius);
-    background-color: var(--card-bg);
+    background-color: var(--secondary-bg); /* پس‌زمینه بژ روشن */
     color: var(--text-color);
     font-family: 'Vazirmatn', sans-serif;
     font-size: 1rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px var(--shadow-color);
     transition: all 0.3s ease;
 }
 
 .search-box input:focus {
     outline: none;
-    border-color: var(--dark-accent-color);
-    box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.3);
+    border-color: var(--accent-red); /* قرمز Marlboro در فوکوس */
+    box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.3); /* سایه قرمز ظریف */
 }
 
 .search-box i {
@@ -174,36 +183,37 @@ body {
     left: 1rem;
     top: 50%;
     transform: translateY(-50%);
-    color: #999;
+    color: var(--text-color); /* آیکون جستجو با رنگ متن */
     pointer-events: none;
 }
 
-.brand-filter label { /* این لیبل پنهان شد، چون فضای موبایل کم است */
+.brand-filter label {
     display: none;
 }
 
 #brand-select {
     width: 100%;
     padding: 0.8rem 1rem;
-    border: 1px solid var(--accent-color);
+    border: 1px solid var(--accent-gold); /* بوردر طلایی */
     border-radius: var(--border-radius);
-    background-color: var(--card-bg);
+    background-color: var(--secondary-bg); /* پس‌زمینه بژ روشن */
     color: var(--text-color);
     font-family: 'Vazirmatn', sans-serif;
     font-size: 1rem;
     appearance: none;
-    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%232c3e50%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-6.5%200-12.3%203.2-16.1%208.1s-1.8%2011.7%200%2016.5l139%20139a17.6%2017.6%200%200%200%2025.2%200l139-139c3.8-4.9%205.8-11%205.4-16.5z%22%2F%3E%3C%2Fsvg%3E');
+    /* SVG فلش سفارشی با رنگ text-color */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23333333%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-6.5%200-12.3%203.2-16.1%208.1s-1.8%2011.7%200%2016.5l139%20139a17.6%2017.6%200%200%200%2025.2%200l139-139c3.8-4.9%205.8-11%205.4-16.5z%22%2F%3E%3C%2Fsvg%3E');
     background-repeat: no-repeat;
     background-position: left 0.8em top 50%;
     background-size: 0.65em auto;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px var(--shadow-color);
     transition: all 0.3s ease;
 }
 
 #brand-select:focus {
     outline: none;
-    border-color: var(--dark-accent-color);
-    box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.3);
+    border-color: var(--accent-red); /* قرمز Marlboro در فوکوس */
+    box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.3); /* سایه قرمز ظریف */
 }
 
 .container {
@@ -215,14 +225,13 @@ body {
 
 .product-grid {
     display: grid;
-    /* Default: 3 columns for larger screens */
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 25px;
     padding: 20px 0;
 }
 
 .product-card {
-    background-color: var(--card-bg);
+    background-color: var(--secondary-bg); /* پس‌زمینه بژ روشن */
     border-radius: var(--border-radius);
     box-shadow: 0 6px 15px var(--shadow-color);
     padding: 1.5rem;
@@ -230,15 +239,15 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    border: 1px solid #eee;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    border: 1px solid rgba(218, 165, 32, 0.3); /* بوردر طلایی ظریف */
     overflow: hidden;
 }
 
 .product-card:hover {
     transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
-    border-color: var(--accent-color);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35); /* سایه عمیق‌تر در هاور */
+    border-color: var(--accent-red); /* بوردر قرمز Marlboro در هاور */
 }
 
 .product-image {
@@ -247,30 +256,31 @@ body {
     object-fit: contain;
     margin-bottom: 1.2rem;
     border-radius: var(--border-radius);
-    background-color: var(--secondary-color);
+    background-color: rgba(255, 255, 255, 0.8); /* پس‌زمینه سفید شیری برای عکس */
     padding: 5px;
     box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+    border: 2px solid var(--accent-gold); /* بوردر طلایی دور تصویر */
 }
 
 .product-name {
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 0.6rem;
-    color: var(--primary-color);
+    color: var(--accent-red); /* نام محصول با رنگ قرمز Marlboro */
 }
 
 .product-brand {
     font-size: 1.15rem;
-    color: #6c7a89;
+    color: var(--text-color); /* برند با رنگ متن اصلی */
     margin-bottom: 1rem;
     padding-bottom: 1rem;
-    border-bottom: 1px dashed #eee;
+    border-bottom: 1px dashed var(--accent-gold); /* خط‌چین طلایی */
     width: 100%;
 }
 
 .product-description {
     font-size: 0.95rem;
-    color: #7f8c8d;
+    color: var(--text-color); /* توضیحات با رنگ متن اصلی */
     margin-bottom: 1rem;
     flex-grow: 1;
 }
@@ -278,7 +288,7 @@ body {
 .product-price {
     font-size: 2.2rem;
     font-weight: 700;
-    color: var(--dark-accent-color);
+    color: var(--accent-gold); /* قیمت با رنگ طلایی */
     margin-top: auto;
     direction: ltr;
     display: flex;
@@ -289,7 +299,7 @@ body {
 .product-price span {
     font-size: 1.4rem;
     font-weight: 400;
-    color: #aeb6bf;
+    color: var(--text-color); /* "تومان" با رنگ متن اصلی */
 }
 
 .product-availability {
@@ -300,27 +310,27 @@ body {
 }
 
 .available {
-    background-color: #e6ffe6;
-    color: #27ae60;
-    border: 1px solid #27ae60;
+    background-color: rgba(0, 128, 0, 0.1); /* سبز کمرنگ‌تر */
+    color: #008000; /* سبز پررنگ */
+    border: 1px solid #008000;
 }
 
 .unavailable {
-    background-color: #ffe6e6;
-    color: #e74c3c;
-    border: 1px solid #e74c3c;
+    background-color: rgba(204, 0, 0, 0.1); /* قرمز کمرنگ Marlboro */
+    color: var(--accent-red); /* قرمز Marlboro */
+    border: 1px solid var(--accent-red);
 }
 
 .no-products-message {
     text-align: center;
     padding: 50px;
     font-size: 1.3rem;
-    color: #7f8c8d;
+    color: var(--text-color);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    background-color: var(--card-bg);
+    background-color: var(--secondary-bg);
     border-radius: var(--border-radius);
     box-shadow: 0 4px 10px var(--shadow-color);
     margin-top: 30px;
@@ -328,7 +338,7 @@ body {
 
 .no-products-message i {
     font-size: 3rem;
-    color: var(--accent-color);
+    color: var(--accent-red); /* آیکون با رنگ قرمز Marlboro */
 }
 
 .no-products-message.hidden {
@@ -336,8 +346,8 @@ body {
 }
 
 .footer {
-    background-color: var(--primary-color);
-    color: var(--light-text-color);
+    background-color: var(--primary-color); /* پس‌زمینه مشکی ذغالی */
+    color: var(--light-text-color); /* متن بژ روشن */
     text-align: center;
     padding: 1.5rem;
     margin-top: 3rem;
@@ -349,19 +359,18 @@ body {
 }
 
 .social-links a {
-    color: var(--light-text-color);
+    color: var(--light-text-color); /* لینک‌ها بژ روشن */
     font-size: 1.5rem;
     margin: 0 10px;
     transition: color 0.3s ease;
 }
 
 .social-links a:hover {
-    color: var(--accent-color);
+    color: var(--accent-gold); /* طلایی در هاور */
 }
 
 /* Responsive adjustments */
 
-/* For screens smaller than 992px (typical for tablets and smaller laptops) */
 @media (max-width: 991px) {
     .header-title {
         font-size: 2.4rem;
@@ -370,14 +379,13 @@ body {
         font-size: 1.3rem;
     }
     .product-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* 2 یا 3 ستون در تبلت */
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
 }
 
-/* For screens smaller than 768px (typical for larger phones and small tablets) */
 @media (max-width: 767px) {
     .carousel-container {
-        max-height: 250px; /* ارتفاع کمتر اسلایدر در موبایل */
+        max-height: 250px;
     }
     .carousel-slide img {
         height: 250px;
@@ -389,38 +397,38 @@ body {
         font-size: 1.1rem;
     }
     .header-content {
-        padding: 1rem 1rem 1rem 1rem; /* کاهش پدینگ هدر */
+        padding: 1rem 1rem 1rem 1rem;
     }
     .search-and-filter-bar {
-        flex-direction: column; /* سرچ و فیلتر زیر هم */
+        flex-direction: column;
         gap: 1rem;
         width: 95%;
     }
     .search-box, .brand-filter {
-        width: 100%; /* اشغال تمام عرض */
+        width: 100%;
         min-width: unset;
     }
     .search-box input, #brand-select {
-        padding: 0.7rem 1rem; /* کاهش پدینگ اینپوت‌ها */
+        padding: 0.7rem 1rem;
         font-size: 0.95rem;
     }
     .search-box i {
-        left: 0.8rem; /* موقعیت آیکون جستجو */
+        left: 0.8rem;
     }
     #brand-select {
-        background-position: left 0.6em top 50%; /* موقعیت آیکون سلکت */
+        background-position: left 0.6em top 50%;
     }
     .product-grid {
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* 2 ستون در موبایل */
-        gap: 15px; /* کاهش فاصله بین محصولات */
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 15px;
         padding: 15px 0;
     }
     .product-card {
         padding: 1rem;
-        border-width: 0.5px; /* کمی نازک‌تر کردن بوردر */
+        border-width: 1px;
     }
     .product-image {
-        width: 100px; /* کوچک‌تر کردن عکس محصول */
+        width: 100px;
         height: 100px;
         margin-bottom: 0.8rem;
     }
@@ -449,7 +457,6 @@ body {
     }
 }
 
-/* For very small screens (e.g., iPhone SE) */
 @media (max-width: 480px) {
     .header-title {
         font-size: 1.6rem;
@@ -458,7 +465,7 @@ body {
         font-size: 0.9rem;
     }
     .product-grid {
-        grid-template-columns: 1fr; /* 1 ستون در موبایل‌های خیلی کوچک */
+        grid-template-columns: 1fr;
         gap: 12px;
     }
     .product-card {
