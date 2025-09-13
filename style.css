@@ -2,13 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap');
 
 :root {
-    --primary-color: #333;
-    --secondary-color: #f4f4f4;
-    --accent-color: #c0a060; /* طلایی لوکس */
-    --text-color: #333;
-    --light-text-color: #eee;
-    --card-bg: #fff;
-    --shadow-color: rgba(0, 0, 0, 0.1);
+    --primary-color: #2c3e50; /* سرمه‌ای تیره */
+    --secondary-color: #ecf0f1; /* خاکستری روشن */
+    --accent-color: #f1c40f; /* طلایی روشن */
+    --dark-accent-color: #c0a060; /* طلایی تیره‌تر لوکس */
+    --text-color: #34495e; /* خاکستری تیره مایل به آبی */
+    --light-text-color: #ecf0f1;
+    --card-bg: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.15);
+    --border-radius: 8px;
 }
 
 * {
@@ -19,11 +21,11 @@
 
 body {
     font-family: 'Vazirmatn', sans-serif;
-    line-height: 1.6;
+    line-height: 1.7;
     color: var(--text-color);
     background-color: var(--secondary-color);
-    direction: rtl; /* برای زبان فارسی */
-    text-align: right; /* برای زبان فارسی */
+    direction: rtl;
+    text-align: right;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -31,163 +33,386 @@ body {
 
 .header {
     background-color: var(--primary-color);
-    color: var(--light-text-color);
-    padding: 1.5rem 1rem;
+    position: relative;
+    padding-bottom: 2rem; /* فضا برای محتوای هدر */
+}
+
+/* Carousel Styles */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-height: 400px; /* حداکثر ارتفاع برای اسلایدر */
+    overflow: hidden;
+}
+
+.carousel-slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover; /* پر کردن کادر با حفظ نسبت ابعاد */
+    display: block;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 10;
+}
+
+.next {
+    left: auto;
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev {
+    right: auto;
+    left: 0;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+/* Fade animation */
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+.header-content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     text-align: center;
-    box-shadow: 0 2px 5px var(--shadow-color);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+    padding: 1.5rem 1rem;
+    background: linear-gradient(to top, rgba(44, 62, 80, 0.9) 0%, rgba(44, 62, 80, 0.7) 70%, rgba(44, 62, 80, 0) 100%);
+    color: var(--light-text-color);
 }
 
 .header-title {
     margin: 0;
-    font-size: 2.2rem;
+    font-size: 2.8rem;
     color: var(--accent-color);
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    letter-spacing: 1px;
 }
 
-.brand-filter {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 1.1rem;
-}
-
-.brand-filter label {
-    font-weight: bold;
+.header-subtitle {
+    font-size: 1.4rem;
+    margin-top: 0.5rem;
     color: var(--light-text-color);
+    opacity: 0.9;
 }
 
-#brand-select {
-    padding: 0.5rem 0.8rem;
+.search-and-filter-bar {
+    display: flex;
+    flex-wrap: wrap; /* برای ریسپانسیو بودن */
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    width: 90%;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-box, .brand-filter {
+    flex: 1; /* برای اشغال فضای مساوی */
+    min-width: 250px; /* حداقل عرض برای هر کدام */
+    position: relative;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 0.8rem 3rem 0.8rem 1rem; /* پدینگ برای آیکون */
     border: 1px solid var(--accent-color);
-    border-radius: 5px;
+    border-radius: var(--border-radius);
     background-color: var(--card-bg);
     color: var(--text-color);
     font-family: 'Vazirmatn', sans-serif;
     font-size: 1rem;
-    min-width: 150px;
-    appearance: none; /* حذف ظاهر پیش فرض در برخی مرورگرها */
-    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-6.5%200-12.3%203.2-16.1%208.1s-1.8%2011.7%200%2016.5l139%20139a17.6%2017.6%200%200%200%2025.2%200l139-139c3.8-4.9%205.8-11%205.4-16.5z%22%2F%3E%3C%2Fsvg%3E');
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: var(--dark-accent-color);
+    box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.3);
+}
+
+.search-box i {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    pointer-events: none; /* تا روی اینپوت تاثیر نگذارد */
+}
+
+
+.brand-filter label {
+    font-weight: bold;
+    color: var(--light-text-color);
+    display: block; /* برای اینکه select در خط بعدی بیاید */
+    margin-bottom: 0.3rem;
+    text-align: center;
+}
+
+#brand-select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 1rem;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%232c3e50%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-6.5%200-12.3%203.2-16.1%208.1s-1.8%2011.7%200%2016.5l139%20139a17.6%2017.6%200%200%200%2025.2%200l139-139c3.8-4.9%205.8-11%205.4-16.5z%22%2F%3E%3C%2Fsvg%3E');
     background-repeat: no-repeat;
-    background-position: left 0.8em top 50%, 0 0;
-    background-size: 0.65em auto, 100%;
+    background-position: left 0.8em top 50%;
+    background-size: 0.65em auto;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+#brand-select:focus {
+    outline: none;
+    border-color: var(--dark-accent-color);
+    box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.3);
 }
 
 .container {
     flex: 1;
     max-width: 1200px;
-    margin: 20px auto;
-    padding: 0 1rem;
+    margin: 30px auto;
+    padding: 0 1.5rem;
 }
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
     padding: 20px 0;
 }
 
 .product-card {
     background-color: var(--card-bg);
-    border-radius: 10px;
-    box-shadow: 0 4px 10px var(--shadow-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 6px 15px var(--shadow-color);
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    border-top: 5px solid var(--accent-color);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    border: 1px solid #eee;
+    overflow: hidden; /* برای جلوگیری از سرریز تصویر */
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    border-color: var(--accent-color);
 }
 
 .product-image {
-    width: 120px;
-    height: 120px;
-    object-fit: contain;
-    margin-bottom: 1rem;
-    border-radius: 5px;
-    border: 1px solid #eee;
+    width: 150px;
+    height: 150px;
+    object-fit: contain; /* برای نمایش کامل تصویر */
+    margin-bottom: 1.2rem;
+    border-radius: var(--border-radius);
+    background-color: var(--secondary-color);
+    padding: 5px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
 }
 
 .product-name {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
     color: var(--primary-color);
 }
 
 .product-brand {
-    font-size: 1.1rem;
-    color: #666;
+    font-size: 1.15rem;
+    color: #6c7a89;
     margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed #eee;
+    width: 100%;
+}
+
+.product-description {
+    font-size: 0.95rem;
+    color: #7f8c8d;
+    margin-bottom: 1rem;
+    flex-grow: 1; /* برای اینکه توضیحات فضای موجود را پر کند */
 }
 
 .product-price {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     font-weight: 700;
-    color: var(--accent-color);
-    margin-top: auto; /* برای چسباندن قیمت به پایین کارت */
-    direction: ltr; /* برای نمایش صحیح اعداد و واحد پول */
+    color: var(--dark-accent-color);
+    margin-top: auto;
+    direction: ltr;
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
 }
 
 .product-price span {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: 400;
-    color: #888;
+    color: #aeb6bf;
+}
+
+.product-availability {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+}
+
+.available {
+    background-color: #e6ffe6;
+    color: #27ae60;
+    border: 1px solid #27ae60;
+}
+
+.unavailable {
+    background-color: #ffe6e6;
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+}
+
+.no-products-message {
+    text-align: center;
+    padding: 50px;
+    font-size: 1.3rem;
+    color: #7f8c8d;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 10px var(--shadow-color);
+    margin-top: 30px;
+}
+
+.no-products-message i {
+    font-size: 3rem;
+    color: var(--accent-color);
+}
+
+.no-products-message.hidden {
+    display: none;
 }
 
 .footer {
     background-color: var(--primary-color);
     color: var(--light-text-color);
     text-align: center;
-    padding: 1rem;
-    margin-top: 2rem;
-    box-shadow: 0 -2px 5px var(--shadow-color);
+    padding: 1.5rem;
+    margin-top: 3rem;
+    box-shadow: 0 -4px 10px var(--shadow-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: var(--light-text-color);
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .header-title {
-        font-size: 1.8rem;
+        font-size: 2.2rem;
+    }
+    .header-subtitle {
+        font-size: 1.2rem;
+    }
+    .search-and-filter-bar {
+        flex-direction: column;
+        align-items: stretch;
+        width: 95%;
+    }
+    .search-box, .brand-filter {
+        min-width: unset; /* حذف حداقل عرض */
+        width: 100%;
     }
     .product-grid {
         grid-template-columns: 1fr; /* یک ستون در موبایل */
+        gap: 20px;
     }
     .product-card {
         padding: 1rem;
     }
     .product-name {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
     .product-price {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
+    }
+    .product-price span {
+        font-size: 1.1rem;
+    }
+    .carousel-slide img {
+        height: 250px; /* ارتفاع کمتر در موبایل */
     }
 }
 
 @media (max-width: 480px) {
-    .header {
-        padding: 1rem 0.5rem;
-    }
     .header-title {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
     }
-    .brand-filter {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    #brand-select {
-        width: 100%;
+    .header-subtitle {
+        font-size: 1rem;
     }
     .container {
-        margin: 15px auto;
-        padding: 0 0.5rem;
+        margin: 20px auto;
+        padding: 0 1rem;
+    }
+    .prev, .next {
+        padding: 12px;
+        font-size: 16px;
     }
 }
