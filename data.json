@@ -1,0 +1,65 @@
+[
+    {
+        "id": 1,
+        "name": "وینستون لایت",
+        "brand": "Winston",
+        "price": 120000,
+        "image": "https://via.placeholder.com/120x120/A0A0A0/FFFFFF?text=WinstonLight"
+    },
+    {
+        "id": 2,
+        "name": "مارلبرو گلد",
+        "brand": "Marlboro",
+        "price": 150000,
+        "image": "https://via.placeholder.com/120x120/B0B0B0/FFFFFF?text=MarlboroGold"
+    },
+    {
+        "id": 3,
+        "name": "بهمن کوچک",
+        "brand": "Bahman",
+        "price": 80000,
+        "image": "https://via.placeholder.com/120x120/C0C0C0/FFFFFF?text=BahmanSmall"
+    },
+    {
+        "id": 4,
+        "name": "کنت نانو",
+        "brand": "Kent",
+        "price": 135000,
+        "image": "https://via.placeholder.com/120x120/D0D0D0/FFFFFF?text=KentNano"
+    },
+    {
+        "id": 5,
+        "name": "مگنا قرمز",
+        "brand": "Magna",
+        "price": 95000,
+        "image": "https://via.placeholder.com/120x120/E0E0E0/FFFFFF?text=MagnaRed"
+    },
+    {
+        "id": 6,
+        "name": "وینستون XS",
+        "brand": "Winston",
+        "price": 140000,
+        "image": "https://via.placeholder.com/120x120/A0A0A0/FFFFFF?text=WinstonXS"
+    },
+    {
+        "id": 7,
+        "name": "مارلبرو فیلتر پلاس",
+        "brand": "Marlboro",
+        "price": 165000,
+        "image": "https://via.placeholder.com/120x120/B0B0B0/FFFFFF?text=MarlboroFilter+"
+    },
+    {
+        "id": 8,
+        "name": "بهمن بلند",
+        "brand": "Bahman",
+        "price": 90000,
+        "image": "https://via.placeholder.com/120x120/C0C0C0/FFFFFF?text=BahmanTall"
+    },
+    {
+        "id": 9,
+        "name": "کنت سوئیچ",
+        "brand": "Kent",
+        "price": 145000,
+        "image": "https://via.placeholder.com/120x120/D0D0D0/FFFFFF?text=KentSwitch"
+    }
+]
