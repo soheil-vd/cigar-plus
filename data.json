@@ -1,65 +1,92 @@
 [
     {
         "id": 1,
-        "name": "وینستون لایت",
+        "name": "وینستون لایت بلو",
         "brand": "Winston",
-        "price": 120000,
-        "image": "https://via.placeholder.com/120x120/A0A0A0/FFFFFF?text=WinstonLight"
+        "price": 125000,
+        "image": "https://via.placeholder.com/150x150/5D7C9D/FFFFFF?text=Winston+Light",
+        "description": "طعم ملایم و دلپذیر، تجربه‌ای خاص و متفاوت.",
+        "availability": "موجود"
     },
     {
         "id": 2,
         "name": "مارلبرو گلد",
         "brand": "Marlboro",
-        "price": 150000,
-        "image": "https://via.placeholder.com/120x120/B0B0B0/FFFFFF?text=MarlboroGold"
+        "price": 160000,
+        "image": "https://via.placeholder.com/150x150/B58D67/FFFFFF?text=Marlboro+Gold",
+        "description": "کلاسیک و شناخته شده، با طعمی غنی و ماندگار.",
+        "availability": "موجود"
     },
     {
         "id": 3,
-        "name": "بهمن کوچک",
+        "name": "بهمن کوچک قرمز",
         "brand": "Bahman",
-        "price": 80000,
-        "image": "https://via.placeholder.com/120x120/C0C0C0/FFFFFF?text=BahmanSmall"
+        "price": 85000,
+        "image": "https://via.placeholder.com/150x150/C65B7C/FFFFFF?text=Bahman+Small",
+        "description": "گزینه‌ای اقتصادی با کیفیت مطلوب.",
+        "availability": "موجود"
     },
     {
         "id": 4,
-        "name": "کنت نانو",
+        "name": "کنت نانو سیاه",
         "brand": "Kent",
-        "price": 135000,
-        "image": "https://via.placeholder.com/120x120/D0D0D0/FFFFFF?text=KentNano"
+        "price": 140000,
+        "image": "https://via.placeholder.com/150x150/34495e/FFFFFF?text=Kent+Nano",
+        "description": "طراحی مدرن، با فیلتر کربن برای فیلتراسیون بهتر.",
+        "availability": "موجود"
     },
     {
         "id": 5,
-        "name": "مگنا قرمز",
+        "name": "مگنا قرمز اصلی",
         "brand": "Magna",
-        "price": 95000,
-        "image": "https://via.placeholder.com/120x120/E0E0E0/FFFFFF?text=MagnaRed"
+        "price": 100000,
+        "image": "https://via.placeholder.com/150x150/E74C3C/FFFFFF?text=Magna+Red",
+        "description": "طعمی قوی و سنتی، برای دوستداران سیگارهای پرقدرت.",
+        "availability": "موجود"
     },
     {
         "id": 6,
-        "name": "وینستون XS",
+        "name": "وینستون ایکس اس آبی",
         "brand": "Winston",
-        "price": 140000,
-        "image": "https://via.placeholder.com/120x120/A0A0A0/FFFFFF?text=WinstonXS"
+        "price": 145000,
+        "image": "https://via.placeholder.com/150x150/6C8EAD/FFFFFF?text=Winston+XS",
+        "description": "طعم خنک و تازه، مناسب لحظات خاص.",
+        "availability": "موجود"
     },
     {
         "id": 7,
         "name": "مارلبرو فیلتر پلاس",
         "brand": "Marlboro",
-        "price": 165000,
-        "image": "https://via.placeholder.com/120x120/B0B0B0/FFFFFF?text=MarlboroFilter+"
+        "price": 175000,
+        "image": "https://via.placeholder.com/150x150/A37D5F/FFFFFF?text=Marlboro+Filter+",
+        "description": "فیلتر پیشرفته برای تجربه‌ای نرم‌تر و دلنشین‌تر.",
+        "availability": "ناموجود"
     },
     {
         "id": 8,
-        "name": "بهمن بلند",
+        "name": "بهمن بلند سبز",
         "brand": "Bahman",
-        "price": 90000,
-        "image": "https://via.placeholder.com/120x120/C0C0C0/FFFFFF?text=BahmanTall"
+        "price": 92000,
+        "image": "https://via.placeholder.com/150x150/8BC34A/FFFFFF?text=Bahman+Tall",
+        "description": "با طعم منتول، حس تازگی و خنکی را به ارمغان می‌آورد.",
+        "availability": "موجود"
     },
     {
         "id": 9,
-        "name": "کنت سوئیچ",
+        "name": "کنت سوئیچ نقره‌ای",
         "brand": "Kent",
-        "price": 145000,
-        "image": "https://via.placeholder.com/120x120/D0D0D0/FFFFFF?text=KentSwitch"
+        "price": 150000,
+        "image": "https://via.placeholder.com/150x150/7F8C8D/FFFFFF?text=Kent+Switch",
+        "description": "با کپسول طعم‌دهنده، برای تغییر طعم در هر لحظه.",
+        "availability": "موجود"
+    },
+    {
+        "id": 10,
+        "name": "پال مال آبی",
+        "brand": "Pall Mall",
+        "price": 110000,
+        "image": "https://via.placeholder.com/150x150/3498DB/FFFFFF?text=Pall+Mall+Blue",
+        "description": "طعمی متعادل و کلاسیک، با قیمتی مناسب.",
+        "availability": "موجود"
     }
 ]
