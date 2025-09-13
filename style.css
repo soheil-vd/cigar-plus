@@ -41,7 +41,7 @@ body {
 .carousel-container {
     position: relative;
     width: 100%;
-    max-height: 400px; /* حداکثر ارتفاع برای اسلایدر */
+    max-height: 400px; /* حداکثر ارتفاع برای اسلایدر در دسکتاپ */
     overflow: hidden;
 }
 
@@ -57,7 +57,7 @@ body {
 
 .carousel-slide img {
     width: 100%;
-    height: 400px;
+    height: 400px; /* ارتفاع در دسکتاپ */
     object-fit: cover; /* پر کردن کادر با حفظ نسبت ابعاد */
     display: block;
 }
@@ -89,6 +89,7 @@ body {
 .prev {
     right: auto;
     left: 0;
+    border-radius: 0 3px 3px 0; /* اصلاح برای دکمه قبلی */
 }
 
 .prev:hover, .next:hover {
@@ -111,7 +112,7 @@ body {
     bottom: 0;
     width: 100%;
     text-align: center;
-    padding: 1.5rem 1rem;
+    padding: 1rem 1rem 1.5rem 1rem; /* پدینگ برای فیلترها */
     background: linear-gradient(to top, rgba(44, 62, 80, 0.9) 0%, rgba(44, 62, 80, 0.7) 70%, rgba(44, 62, 80, 0) 100%);
     color: var(--light-text-color);
 }
@@ -133,25 +134,25 @@ body {
 
 .search-and-filter-bar {
     display: flex;
-    flex-wrap: wrap; /* برای ریسپانسیو بودن */
     justify-content: center;
-    gap: 1.5rem;
+    gap: 1rem; /* کاهش فاصله بین جستجو و فیلتر */
     margin-top: 1.5rem;
     width: 90%;
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+    flex-wrap: nowrap; /* از شکستن به سطر جدید جلوگیری شود در دسکتاپ */
 }
 
 .search-box, .brand-filter {
-    flex: 1; /* برای اشغال فضای مساوی */
-    min-width: 250px; /* حداقل عرض برای هر کدام */
+    flex: 1;
+    min-width: 0; /* اجازه کوچک شدن بیشتر */
     position: relative;
 }
 
 .search-box input {
     width: 100%;
-    padding: 0.8rem 3rem 0.8rem 1rem; /* پدینگ برای آیکون */
+    padding: 0.8rem 3rem 0.8rem 1rem;
     border: 1px solid var(--accent-color);
     border-radius: var(--border-radius);
     background-color: var(--card-bg);
@@ -174,16 +175,11 @@ body {
     top: 50%;
     transform: translateY(-50%);
     color: #999;
-    pointer-events: none; /* تا روی اینپوت تاثیر نگذارد */
+    pointer-events: none;
 }
 
-
-.brand-filter label {
-    font-weight: bold;
-    color: var(--light-text-color);
-    display: block; /* برای اینکه select در خط بعدی بیاید */
-    margin-bottom: 0.3rem;
-    text-align: center;
+.brand-filter label { /* این لیبل پنهان شد، چون فضای موبایل کم است */
+    display: none;
 }
 
 #brand-select {
@@ -219,6 +215,7 @@ body {
 
 .product-grid {
     display: grid;
+    /* Default: 3 columns for larger screens */
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 25px;
     padding: 20px 0;
@@ -235,7 +232,7 @@ body {
     text-align: center;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     border: 1px solid #eee;
-    overflow: hidden; /* برای جلوگیری از سرریز تصویر */
+    overflow: hidden;
 }
 
 .product-card:hover {
@@ -247,7 +244,7 @@ body {
 .product-image {
     width: 150px;
     height: 150px;
-    object-fit: contain; /* برای نمایش کامل تصویر */
+    object-fit: contain;
     margin-bottom: 1.2rem;
     border-radius: var(--border-radius);
     background-color: var(--secondary-color);
@@ -275,7 +272,7 @@ body {
     font-size: 0.95rem;
     color: #7f8c8d;
     margin-bottom: 1rem;
-    flex-grow: 1; /* برای اینکه توضیحات فضای موجود را پر کند */
+    flex-grow: 1;
 }
 
 .product-price {
@@ -363,31 +360,82 @@ body {
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+
+/* For screens smaller than 992px (typical for tablets and smaller laptops) */
+@media (max-width: 991px) {
     .header-title {
-        font-size: 2.2rem;
+        font-size: 2.4rem;
     }
     .header-subtitle {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
+    }
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* 2 یا 3 ستون در تبلت */
+    }
+}
+
+/* For screens smaller than 768px (typical for larger phones and small tablets) */
+@media (max-width: 767px) {
+    .carousel-container {
+        max-height: 250px; /* ارتفاع کمتر اسلایدر در موبایل */
+    }
+    .carousel-slide img {
+        height: 250px;
+    }
+    .header-title {
+        font-size: 2rem;
+    }
+    .header-subtitle {
+        font-size: 1.1rem;
+    }
+    .header-content {
+        padding: 1rem 1rem 1rem 1rem; /* کاهش پدینگ هدر */
     }
     .search-and-filter-bar {
-        flex-direction: column;
-        align-items: stretch;
+        flex-direction: column; /* سرچ و فیلتر زیر هم */
+        gap: 1rem;
         width: 95%;
     }
     .search-box, .brand-filter {
-        min-width: unset; /* حذف حداقل عرض */
-        width: 100%;
+        width: 100%; /* اشغال تمام عرض */
+        min-width: unset;
+    }
+    .search-box input, #brand-select {
+        padding: 0.7rem 1rem; /* کاهش پدینگ اینپوت‌ها */
+        font-size: 0.95rem;
+    }
+    .search-box i {
+        left: 0.8rem; /* موقعیت آیکون جستجو */
+    }
+    #brand-select {
+        background-position: left 0.6em top 50%; /* موقعیت آیکون سلکت */
     }
     .product-grid {
-        grid-template-columns: 1fr; /* یک ستون در موبایل */
-        gap: 20px;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* 2 ستون در موبایل */
+        gap: 15px; /* کاهش فاصله بین محصولات */
+        padding: 15px 0;
     }
     .product-card {
         padding: 1rem;
+        border-width: 0.5px; /* کمی نازک‌تر کردن بوردر */
+    }
+    .product-image {
+        width: 100px; /* کوچک‌تر کردن عکس محصول */
+        height: 100px;
+        margin-bottom: 0.8rem;
     }
     .product-name {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
+        margin-bottom: 0.4rem;
+    }
+    .product-brand {
+        font-size: 1rem;
+        margin-bottom: 0.8rem;
+        padding-bottom: 0.8rem;
+    }
+    .product-description {
+        font-size: 0.85rem;
+        margin-bottom: 0.8rem;
     }
     .product-price {
         font-size: 1.8rem;
@@ -395,24 +443,41 @@ body {
     .product-price span {
         font-size: 1.1rem;
     }
-    .carousel-slide img {
-        height: 250px; /* ارتفاع کمتر در موبایل */
+    .prev, .next {
+        padding: 10px;
+        font-size: 16px;
     }
 }
 
+/* For very small screens (e.g., iPhone SE) */
 @media (max-width: 480px) {
     .header-title {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
     .header-subtitle {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
-    .container {
-        margin: 20px auto;
-        padding: 0 1rem;
+    .product-grid {
+        grid-template-columns: 1fr; /* 1 ستون در موبایل‌های خیلی کوچک */
+        gap: 12px;
+    }
+    .product-card {
+        padding: 0.8rem;
+    }
+    .product-image {
+        width: 80px;
+        height: 80px;
+    }
+    .no-products-message {
+        padding: 30px 15px;
+        font-size: 1.1rem;
+    }
+    .no-products-message i {
+        font-size: 2.5rem;
     }
     .prev, .next {
-        padding: 12px;
-        font-size: 16px;
+        padding: 8px;
+        font-size: 14px;
+        margin-top: -18px;
     }
 }
