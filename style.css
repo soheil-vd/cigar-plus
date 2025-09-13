@@ -1,0 +1,193 @@
+/* Import Vazirmatn Font */
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap');
+
+:root {
+    --primary-color: #333;
+    --secondary-color: #f4f4f4;
+    --accent-color: #c0a060; /* طلایی لوکس */
+    --text-color: #333;
+    --light-text-color: #eee;
+    --card-bg: #fff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+    direction: rtl; /* برای زبان فارسی */
+    text-align: right; /* برای زبان فارسی */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    padding: 1.5rem 1rem;
+    text-align: center;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-title {
+    margin: 0;
+    font-size: 2.2rem;
+    color: var(--accent-color);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.brand-filter {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.brand-filter label {
+    font-weight: bold;
+    color: var(--light-text-color);
+}
+
+#brand-select {
+    padding: 0.5rem 0.8rem;
+    border: 1px solid var(--accent-color);
+    border-radius: 5px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 1rem;
+    min-width: 150px;
+    appearance: none; /* حذف ظاهر پیش فرض در برخی مرورگرها */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-6.5%200-12.3%203.2-16.1%208.1s-1.8%2011.7%200%2016.5l139%20139a17.6%2017.6%200%200%200%2025.2%200l139-139c3.8-4.9%205.8-11%205.4-16.5z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: left 0.8em top 50%, 0 0;
+    background-size: 0.65em auto, 100%;
+}
+
+.container {
+    flex: 1;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 1rem;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.product-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border-top: 5px solid var(--accent-color);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    border: 1px solid #eee;
+}
+
+.product-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.product-brand {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.product-price {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-top: auto; /* برای چسباندن قیمت به پایین کارت */
+    direction: ltr; /* برای نمایش صحیح اعداد و واحد پول */
+}
+
+.product-price span {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #888;
+}
+
+.footer {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+    box-shadow: 0 -2px 5px var(--shadow-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header-title {
+        font-size: 1.8rem;
+    }
+    .product-grid {
+        grid-template-columns: 1fr; /* یک ستون در موبایل */
+    }
+    .product-card {
+        padding: 1rem;
+    }
+    .product-name {
+        font-size: 1.2rem;
+    }
+    .product-price {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 1rem 0.5rem;
+    }
+    .header-title {
+        font-size: 1.6rem;
+    }
+    .brand-filter {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    #brand-select {
+        width: 100%;
+    }
+    .container {
+        margin: 15px auto;
+        padding: 0 0.5rem;
+    }
+}
